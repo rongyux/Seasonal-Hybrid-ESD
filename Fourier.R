@@ -1,0 +1,10 @@
+Fourier_trans<-function(data)
+{
+   install.packages("TSA")
+   library(TSA)
+   p=periodogram(data[2])
+   dd=data.frame(freq=p$freq,spec=p$spec)
+   order=dd[order(-dd$spec),]
+   top2=head(order,3)
+   time=min(1.00/top2$f)
+}
